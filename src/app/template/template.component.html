@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <label for="searchBox" class="form-label">Template Search</label>
+            <input type="text" [(ngModel)]="searchText" (ngModelChange)="searchTextChanged()" class="form-control" id="searchBox" placeholder="Trimmer">
+        </div>
+    </div>
+    <div class="row search-results">
+        <ul class="list-group">
+            <li class="list-group-item row" *ngFor="let item of filteredItems">
+                <span class="col-6">{{ item.name }}</span>
+                <span class="col-6">{{ item.price }}</span>
+            </li>
+          </ul>
+    </div>
+    <div class="row">
+        <button type="button" class="btn btn-primary" (click)="submit()" [disabled]="isNotSearchTextPresent">Submit</button>
+    </div>
+</div>
